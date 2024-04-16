@@ -6,7 +6,10 @@ root.title("Computer Friend")
 
 e = Entry(root, width=40, borderwidth=3)
 
-username = input("Hello, how would you like me to call you?")
+usernamen = 0
+while usernamen == 0:
+  username = input("Hello, how would you like me to call you?")
+  usernamen + 1
 
 print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
 
