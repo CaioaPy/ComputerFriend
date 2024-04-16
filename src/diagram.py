@@ -9,6 +9,14 @@ print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'
 root = Tk()
 root.title("Computer Friend")
 
-l1 = Label(root, text="home\n \n\n\nhello")
-l1.pack()
+#labels
+l1 = Label(root, text="Welcome!")
+
+#buttons
+helloButton = Button(root, text= "hello!")
+
+
+#grid
+l1.grid(row=0, column=1)
+
 root.mainloop()
