@@ -11,7 +11,7 @@ username = input("Hello, how would you like me to call you?")
 print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
 
 #labels
-l1 = Label(root, text="Welcome!")
+l1 = Label(root, text=f"Welcome, {username}!")
 placeholder = Label(root, text=" ")
 
 #buttons
@@ -27,4 +27,4 @@ root.mainloop()
 
 #functions
 def home():
-  action = input("What do you want to do, " + username + "?")
+  e.insert("What do you want to do, " + username + "?")
