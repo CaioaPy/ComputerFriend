@@ -30,4 +30,4 @@ root.mainloop()
 
 #functions
 def home():
-  e.insert("What do you want to do, " + username + "?")
+  e.insert("What do you want talk about, " + username + "?")
