@@ -7,11 +7,8 @@ username = input("Hello, how would you like me to call you?")
 print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
 
 root = Tk()
+root.title("Computer Friend")
 
-# create
 l1 = Label(root, text="home\n \n\n\nhello")
-# then putting it on screen
 l1.pack()
-
 root.mainloop()
-# start guis 
