@@ -4,6 +4,8 @@ from tkinter import *
 root = Tk()
 root.title("Computer Friend")
 
+e = Entry(root, width=40, borderwidth=3)
+
 username = input("Hello, how would you like me to call you?")
 
 print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
@@ -13,12 +15,13 @@ l1 = Label(root, text="Welcome!")
 placeholder = Label(root, text=" ")
 
 #buttons
-helloButton = Button(root, text= "hello!")
+ConfirmButton = Button(root, text= "Confirm")
 
 #grid
 l1.grid(row=0, column=1)
+e.grid(row=1, column=1)
 placeholder.grid(row=1, column=0)
-helloButton.grid(row=2, column=1, padx=30, pady=15)
+ConfirmButton.grid(row=2, column=1, padx=30, pady=15)
 
 root.mainloop()
 
