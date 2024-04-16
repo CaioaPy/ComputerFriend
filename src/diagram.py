@@ -11,12 +11,14 @@ root.title("Computer Friend")
 
 #labels
 l1 = Label(root, text="Welcome!")
+placeholder = Label(root, text=" ")
 
 #buttons
 helloButton = Button(root, text= "hello!")
 
-
 #grid
 l1.grid(row=0, column=1)
+placeholder.grid(row=1, column=0)
+helloButton.grid(row=2, column=1, padx=30, pady=15)
 
 root.mainloop()
