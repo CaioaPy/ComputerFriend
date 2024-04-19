@@ -15,7 +15,7 @@ l1 = Label(root, text=f"Welcome, {username}!")
 placeholder = Label(root, text=" ")
 
 #buttons
-ConfirmButton = Button(root, text= "Confirm")
+ConfirmButton = Button(root, text= "Send!")
 
 #grid
 l1.grid(row=0, column=1)
