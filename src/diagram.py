@@ -8,7 +8,7 @@ e = Entry(root, width=40, borderwidth=3)
 
 username = input("Hello, how would you like me to call you?")
 
-print("Hello " + username + ", welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
+print(f"Hello {username}, welcome to Computer Friend\nas you can imagine I'm a friend inside your computer")
 
 #labels
 l1 = Label(root, text=f"Welcome, {username}!")
