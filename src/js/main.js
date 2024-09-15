@@ -34,7 +34,7 @@ function sendMessage(messageText){
 
 sendBtn.addEventListener('click', function(e){
     if (textbox.value == ""){
-
+        alert('Você precisa escrever alguma coisa para conversar com o Computer Friend!')
     }
     else{
         let messageText = textbox.value;    
