@@ -2,9 +2,9 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
-chatBotMessage("heyooo")
+sendChatBotMessage("heyooo")
 
-function chatBotMessage(messageText){
+function sendChatBotMessage(messageText){
     var messageElement = document.createElement('div');
     messageElement.classList.add('w-50');
     messageElement.classList.add('float-left');
