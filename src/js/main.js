@@ -2,7 +2,7 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
-sendChatBotMessage("heyooo")
+sendChatBotMessage("heyooo");
 
 function sendChatBotMessage(messageText){
     var messageElement = document.createElement('div');
@@ -33,6 +33,11 @@ function sendMessage(messageText){
 }
 
 sendBtn.addEventListener('click', function(e){
-    let messageText = textbox.value;
-    sendMessage(messageText);
+    if (textbox.value == ""){
+
+    }
+    else{
+        let messageText = textbox.value;    
+        sendMessage(messageText);
+    }
 });
