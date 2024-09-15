@@ -28,7 +28,6 @@ function sendMessage(messageText){
 
     messageElement.innerHTML = "<span>Me: </span>" +
     "<span style="+"margin-top:10px; padding:5px"+">"+ messageText +"</span>";
-    
     chat_container.appendChild(messageElement);
 }
 
