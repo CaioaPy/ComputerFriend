@@ -28,6 +28,9 @@ function sendMessage(messageText){
 
     messageElement.innerHTML = "<span>Me: </span>" +
     "<span style="+"margin-top:10px; padding:5px"+">"+ messageText +"</span>";
+
+    messageElement.animate([{easing:"ease-in", opacity:0.4},{opacity:1}],{duration:350});
+
     chat_container.appendChild(messageElement);
 }
 
