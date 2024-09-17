@@ -71,5 +71,7 @@ function processMessage(){
     var result = arrayOfMessages.filter(val=> val.message.includes(user.message.toLowerCase()));
     var response = result[0].response;
 
-    sendChatBotMessage(response)
+    setTimeout(function(){
+        sendChatBotMessage(response);
+    }, 1000);
 }
