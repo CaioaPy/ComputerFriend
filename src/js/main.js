@@ -38,5 +38,6 @@ sendBtn.addEventListener('click', function(e){
     else{
         let messageText = textbox.value;    
         sendMessage(messageText);
+        textbox.value = "";
     }
 });
