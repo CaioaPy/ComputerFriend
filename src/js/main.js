@@ -4,9 +4,19 @@ var chat_container = document.getElementById('chat_container');
 
 var user = {message:""};
 var arrayOfMessages = [
-    {"message":"how are you?", "response":"im fine"},
-    {"message":"hi", "response":"heyoo!"},
-    {"message":"hello", "response":"heloo :3"}
+    {"message": "how are you?", "response":"im fine"},
+    {"message": "hi", "response":"heyoo!"},
+    {"message": "hello", "response":"heloo :3"},
+    {"message": "what's up?", "response": "Not much, just here to help! How about you?"},
+    {"message": "what time is it?", "response": "I don't have a clock, but you can check the time on your device!"},
+    {"message": "can you help me with math?", "response": "Absolutely! What math problem are you working on?"},
+    {"message": "tell me a joke", "response": "Why don't programmers like nature? It has too many bugs!"},
+    {"message": "what's your favorite color?", "response": "I don't have preferences, but I think blue is pretty cool!"},
+    {"message": "how old are you?", "response": "I'm as old as the latest update, but I'm always learning and growing!"},
+    {"message": "what can you do?", "response": "I can help answer questions, provide information, and chat with you about a wide range of topics!"},
+    {"message": "goodbye", "response": "Catch you later! Have a great day!"},
+    {"message": "what's your name?", "response": "I'm Computer Friend, your friendly virtual assistant!"},
+    {"message": "do you like music?", "response": "I don't have ears, but I can help you find great music to listen to!"}
 ];
 
 sendChatBotMessage("heyooo");
