@@ -1,6 +1,7 @@
 var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
+var user = {message:""};
 
 sendChatBotMessage("heyooo");
 
@@ -14,6 +15,8 @@ function sendChatBotMessage(messageText){
 
     messageElement.innerHTML = "<span>Computer Friend: </span>" +
     "<span style="+"margin-top:10px; padding:5px"+">"+ messageText +"</span>";
+
+    messageElement.animate([{easing:"ease-in", opacity:0.4},{opacity:1}],{duration:350});
     
     chat_container.appendChild(messageElement);
 }
@@ -42,5 +45,12 @@ sendBtn.addEventListener('click', function(e){
         let messageText = textbox.value;    
         sendMessage(messageText);
         textbox.value = "";
+        user.message = messageText;
+        processMessage();
+
     }
 });
+
+function processMessage(){
+
+}
