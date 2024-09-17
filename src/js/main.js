@@ -68,10 +68,19 @@ sendBtn.addEventListener('click', function(e){
 });
 
 function processMessage(){
+    if(user.message.length > 5)
+
     var result = arrayOfMessages.filter(val=> val.message.includes(user.message.toLowerCase()));
+
     var response = result[0].response;
 
-    setTimeout(function(){
-        sendChatBotMessage(response);
-    }, 1000);
+    if (result.length > 0){
+        setTimeout(function(){
+            sendChatBotMessage(response);
+        }, 1000);
+    }else{
+        setTimeout(function(){
+            sendChatBotMessage("w̵̧̡͓̰̰̟̗̫̟̱̣̫͐̄͒̍̄̍̍͒̃͠͝ḩ̴̡̛̣̱̝̖̮̬̺̫͈̊̏̀̿̍̐̀̕͝͝ą̴̠̘̪̥̒͐́̑t̸̢̨̺͙̭̟̲̪͖̟͕̖̠̀͊͌͛͑͊̇̋͆̄̚ͅ");
+        }, 1000);
+    }
 }
