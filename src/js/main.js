@@ -15,7 +15,8 @@ function sendChatBotMessage(messageText) {
     messageElement.style.margin = "10px";
     messageElement.style.padding = "5px";
 
-    messageElement.innerHTML = `<span>Computer Friend: </span><span style="margin-top:10px; padding:5px">${messageText}</span>`;
+    messageElement.innerHTML = `<span>Computer Friend: </span>
+    <span style="margin-top:10px; padding:5px">${messageText}</span>`;
 
     messageElement.animate([{ easing: "ease-in", opacity: 0.4 }, { opacity: 1 }], { duration: 350 });
 
@@ -27,8 +28,8 @@ function sendMessage(messageText) {
     messageElement.classList.add('w-50', 'float-left');
     messageElement.style.margin = "10px";
     messageElement.style.padding = "5px";
-
-    messageElement.innerHTML = `<span>Me: </span><span style="margin-top:10px; padding:5px">${messageText}</span>`;
+    messageElement.innerHTML = `<span>Me: </span>
+    <span style="margin-top:10px; padding:5px">${messageText}</span>`;
 
     messageElement.animate([{ easing: "ease-in", opacity: 0.4 }, { opacity: 1 }], { duration: 350 });
 
@@ -38,7 +39,8 @@ function sendMessage(messageText) {
 sendBtn.addEventListener('click', function(e) {
     if (textbox.value.trim() === "") {
         alert('You need to write something to chat with Computer Friend!');
-    } else {
+    } 
+    else {
         let messageText = textbox.value;    
         sendMessage(messageText);
         textbox.value = "";
