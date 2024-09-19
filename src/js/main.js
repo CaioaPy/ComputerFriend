@@ -3,7 +3,7 @@ var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
 const API_URL = "https://api.openai.com/v1/chat/completions";
-const API_KEY = "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"
+const API_KEY = "sk-NUmP9wcbNPtnyaR76SI7VJk-zb6EjceguSxYd_MXC1T3BlbkFJtes9qFChpFHZF0-GrYixVrKEqCc6HGo3jnFXJYuFAA"
 
 // Create an instance of the OpenAIApi class by passing a configuration object
 // Define a function to generate text
@@ -17,13 +17,16 @@ const generateText = async (prompt) => {
             },
             body: JSON.stringify({
                 model: 'gpt-3.5-turbo',
-                prompt: prompt,
+                messages: [
+                    {role: "system", content: "You are a helpful assistant called 'Computer Friend'." },
+                    {role: "user", content: prompt},
+                ],
                 temperature: 1,
                 max_tokens: 800
             })
         });
         const data = await response.json();
-        return data.choices[0].text.trim();
+        return data.choices[0].message.content.trim();
     } catch (error) {
         console.error("Error while generating:", error);
         return "I'm sorry, something went wrong.";
@@ -77,8 +80,5 @@ sendBtn.addEventListener('click', function(e) {
 
 async function processMessage() {
     var response = await generateText(user.message);
-
-    setTimeout(function() {
         sendChatBotMessage(response);
-    }, 1000);
 }
