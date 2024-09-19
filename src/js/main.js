@@ -1,13 +1,18 @@
+import OpenAI from "openai";
+const openai = new OpenAI();
+
 var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
+
+
 
 const API_KEY = "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"
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 var user = { message: "" };
 
-sendChatBotMessage("Hello! How can I assist you today?");
+sendChatBotMessage("Hello! How are you today?");
 
 function sendChatBotMessage(messageText) {
     var messageElement = document.createElement('div');
