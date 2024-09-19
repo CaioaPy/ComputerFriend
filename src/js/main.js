@@ -2,28 +2,34 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
-
-const { Configuration, OpenAIApi } = require('openai');
+const API_URL = "https://api.openai.com/v1/chat/completions";
+const API_KEY = "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"
 
 // Create an instance of the OpenAIApi class by passing a configuration object
-const openai = new OpenAIApi(new Configuration({
-    apiKey: "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"
-}));
-
 // Define a function to generate text
 const generateText = async (prompt) => {
-    const response = await openai.createCompletion({
-        model: 'gpt-4o-mini', 
-        prompt: prompt, 
-        temperature: 1, 
-        max_tokens: 800,
-    });
-
-    // Return the generated text from the response
-    return response.choices[0].text;
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                prompt: prompt,
+                temperature: 1,
+                max_tokens: 800
+            })
+        });
+        const data = await response.json();
+        return data.choices[0].text.trim();
+    } catch (error) {
+        console.error("Error while generating:", error);
+        return "I'm sorry, something went wrong.";
+    }
 }
 
-const API_URL = "https://api.openai.com/v1/chat/completions";
 
 var user = { message: "" };
 
@@ -69,8 +75,8 @@ sendBtn.addEventListener('click', function(e) {
     }
 });
 
-function processMessage() {
-    var response = generateText(prompt);
+async function processMessage() {
+    var response = await generateText(user.message);
 
     setTimeout(function() {
         sendChatBotMessage(response);
