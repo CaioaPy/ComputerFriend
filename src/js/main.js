@@ -1,13 +1,28 @@
-import OpenAI from "openai";
-const openai = new OpenAI();
-
 var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
 
+const { Configuration, OpenAIApi } = require('openai');
 
-const API_KEY = "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"
+// Create an instance of the OpenAIApi class by passing a configuration object
+const openai = new OpenAIApi(new Configuration({
+    apiKey: "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"
+}));
+
+// Define a function to generate text
+const generateText = async (prompt) => {
+    const response = await openai.createCompletion({
+        model: 'gpt-4o-mini', 
+        prompt: prompt, 
+        temperature: 1, 
+        max_tokens: 800,
+    });
+
+    // Return the generated text from the response
+    return response.choices[0].text;
+}
+
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 var user = { message: "" };
@@ -55,7 +70,7 @@ sendBtn.addEventListener('click', function(e) {
 });
 
 function processMessage() {
-    var response = "w̵̧̡͓̰̰̟̗̫̟̱̣̫͐̄͒̍̄̍̍͒̃͠͝ḩ̴̡̛̣̱̝̖̮̬̺̫͈̊̏̀̿̍̐̀̕͝͝ą̴̠̘̪̥̒͐́̑t̸̢̨̺͙̭̟̲̪͖̟͕̖̠̀͊͌͛͑͊̇̋͆̄̚ͅ";
+    var response = generateText(prompt);
 
     setTimeout(function() {
         sendChatBotMessage(response);
