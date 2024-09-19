@@ -9,30 +9,42 @@ const API_KEY = "sk-NUmP9wcbNPtnyaR76SI7VJk-zb6EjceguSxYd_MXC1T3BlbkFJtes9qFChpF
 // Define a function to generate text
 const generateText = async (prompt) => {
     try {
+        const requestBody = {
+            model: 'gpt-3.5-turbo',
+            messages: [
+                {role: "system", content: "You are a helpful assistant called 'Computer Friend'." },
+                {role: "user", content: prompt},
+            ],
+            temperature: 1,
+            max_tokens: 800
+        };
+
+        console.log("Making request to:", API_URL);
+        console.log("Request body:", JSON.stringify(requestBody));
+
         const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${API_KEY}`
             },
-            body: JSON.stringify({
-                model: 'gpt-3.5-turbo',
-                messages: [
-                    {role: "system", content: "You are a helpful assistant called 'Computer Friend'." },
-                    {role: "user", content: prompt},
-                ],
-                temperature: 1,
-                max_tokens: 800
-            })
+            body: JSON.stringify(requestBody)
         });
+        
         const data = await response.json();
-        return data.choices[0].message.content.trim();
+        console.log("Response data:", data); // Log the response
+
+        if (data.choices && data.choices.length > 0) {
+            return data.choices[0].message.content.trim();
+        } else {
+            console.error("No choices found in response:", data);
+            return "I'm sorry, I didn't get a proper response.";
+        }
     } catch (error) {
         console.error("Error while generating:", error);
         return "I'm sorry, something went wrong.";
     }
-}
-
+};
 
 var user = { message: "" };
 
