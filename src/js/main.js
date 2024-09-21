@@ -2,6 +2,21 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+const genAI = new GoogleGenerativeAI({API_KEY: AIzaSyBBifhvL36gsmvfDrNvadGnUkotyQVVoZE});
+
+async function run(userMessage) {
+    try {
+        const model = genAI.getGenerativeModel({model: "gemini-1.5-flash"});
+        const result = await model.generateContent({prompt: userMessage});
+        const response = await result.json();
+        return response.generations[0].text;
+    } catch (error) {
+        console.error("Error generating AI content:", error);
+        return "Sorry, I couldn't process your message.";
+    }
+}
 var user = { message: "" };
 
 sendChatBotMessage("Hello! How are you today?");
@@ -41,12 +56,11 @@ sendBtn.addEventListener('click', function(e) {
         let messageText = textbox.value;    
         sendMessage(messageText);
         textbox.value = "";
-        user.message = messageText;
         processMessage();
     }
 });
 
-async function processMessage() {
-    var response = "what";
+async function processMessage(userMessage) {
+    var response = await run(userMessage);
         sendChatBotMessage(response);
 }
