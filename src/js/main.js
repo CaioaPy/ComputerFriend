@@ -2,9 +2,9 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+//import {GoogleGenerativeAI} from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI({API_KEY: AIzaSyBBifhvL36gsmvfDrNvadGnUkotyQVVoZE});
+//const genAI = new GoogleGenerativeAI({API_KEY: AIzaSyBBifhvL36gsmvfDrNvadGnUkotyQVVoZE});
 
 async function run(userMessage) {
     try {
@@ -49,6 +49,7 @@ function sendMessage(messageText) {
 }
 
 sendBtn.addEventListener('click', function(e) {
+    console.log('Send button clicked');
     if (textbox.value.trim() === "") {
         alert('You need to write something to chat with Computer Friend!');
     } 
@@ -61,6 +62,7 @@ sendBtn.addEventListener('click', function(e) {
 });
 
 async function processMessage(userMessage) {
-    var response = await run(userMessage);
+    var a = "test"
+    var response = await run(a);
         sendChatBotMessage(response);
 }
