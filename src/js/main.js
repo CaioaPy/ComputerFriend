@@ -2,7 +2,7 @@ var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 const genAI = new GoogleGenerativeAI({API_KEY: AIzaSyBBifhvL36gsmvfDrNvadGnUkotyQVVoZE});
 
@@ -56,7 +56,7 @@ sendBtn.addEventListener('click', function(e) {
         let messageText = textbox.value;    
         sendMessage(messageText);
         textbox.value = "";
-        processMessage();
+        processMessage(messageText);
     }
 });
 
