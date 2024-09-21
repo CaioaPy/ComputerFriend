@@ -1,6 +1,7 @@
 var sendBtn = document.getElementById('sendBtn');
 var textbox = document.getElementById('usertext');
 var chat_container = document.getElementById('chat_container');
+var user = { message: ""};
 
 //import {GoogleGenerativeAI} from '@google/generative-ai';
 
@@ -17,7 +18,6 @@ async function run(userMessage){
         return "Sorry, I couldn't process your message.";
     }
 }
-var user = { message: ""};
 
 sendChatBotMessage("Hello! How are you today?");
 
