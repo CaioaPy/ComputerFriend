@@ -5,8 +5,6 @@ var chat_container = document.getElementById('chat_container');
 const API_URL = "https://api.openai.com/v1/chat/completions";
 const API_KEY = "sk-NUmP9wcbNPtnyaR76SI7VJk-zb6EjceguSxYd_MXC1T3BlbkFJtes9qFChpFHZF0-GrYixVrKEqCc6HGo3jnFXJYuFAA"
 
-// Create an instance of the OpenAIApi class by passing a configuration object
-// Define a function to generate text
 const generateText = async (prompt) => {
     try {
         const requestBody = {
